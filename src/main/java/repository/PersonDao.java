@@ -45,7 +45,7 @@ public class PersonDao {
     	try {
 	    	Query q = em.createNamedQuery("Person.findByName");
 	    	q.setParameter("name", name);
-	    	return (Person) q.getSingleResult();
+	    	return (Person) q.getResultList().get(0);
 	    	
     	} catch(NoResultException e) {
             return null;

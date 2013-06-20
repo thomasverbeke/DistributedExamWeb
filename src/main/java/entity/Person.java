@@ -40,7 +40,6 @@ public class Person implements Serializable {
 	private Integer age;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
-	//@JoinColumn(name="fk_role", referencedColumnName = "id")
 	@JoinTable(	name="JND_Person_Role", catalog = "a12_DA3", schema = "db_accessadmin",
 					joinColumns= @JoinColumn(name="fk_Person"),
 					inverseJoinColumns = @JoinColumn(name="fk_Role"))
@@ -91,8 +90,12 @@ public class Person implements Serializable {
 		this.roles = roles;
 	}
 
-	public void setData(List<Data> datas){
+	public void setDatas(List<Data> datas){
 		this.datas = datas;
+	}
+	
+	public List<Data> getDatas(){
+		return datas;
 	}
 
 	@Override

@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(name = "Data", catalog = "a12_DA3", schema = "db_accessadmin")
@@ -17,6 +20,7 @@ public class Data {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
 	private String fileName;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="fk_person")
 	private Person person;
@@ -34,14 +38,14 @@ public class Data {
 		return id;
 	}
 
-	public String getName() {
+	public String getFileName() {
 		return fileName;
 	}
 
-	public void setName(String fileName) {
+	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	
+	@XmlTransient
 	public Person getPerson(){
 		return person;
 	}

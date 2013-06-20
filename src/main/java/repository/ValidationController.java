@@ -58,7 +58,7 @@ public class ValidationController {
         	List<Role> roles =  new ArrayList<Role>();
         	roles.add(role1);
         	
-        	person.setData(datas);
+        	person.setDatas(datas);
         	person.setRoles(roles);
         	
         	personDao.persist(person);

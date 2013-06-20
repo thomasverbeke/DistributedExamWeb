@@ -21,18 +21,18 @@ public class PersonValidator implements Validator {
 		if (person !=null){
 			if (person.getName() != null){
 				if (person.getName().length() < MIN_NAME){
-					errors.rejectValue("name","string","your name has to be a least 4 char's");
+					errors.rejectValue("name","validation.name", new Object[] {new Integer(MIN_NAME)},"You're too young for this service");
 				}
 			} else {
-				errors.rejectValue("name","string","enter a name");
+				errors.rejectValue("name","validation.name", new Object[] {new Integer(MIN_NAME)},"You're too young for this service");
 			}
 			
 			if (person.getAge() != null){
 				if (person.getAge() < MIN_AGE){
-					errors.rejectValue("age","bing","error.too-high");
+					errors.rejectValue("age","validation.age", new Object[] {new Integer(MIN_AGE)},"You're too young for this service");
 				}
 			} else {
-				errors.rejectValue("age","bing","error.too-high");
+				errors.rejectValue("age","validation.age", new Object[] {new Integer(MIN_AGE)},"You're too young for this service");
 			}
 			
 		}
