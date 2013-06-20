@@ -24,6 +24,22 @@
 	<context:annotation-config />
  
  
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+ 
+ 	<mvc:interceptors>
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+    	<property name="paramName" value="lang" />
+	</bean>
+	</mvc:interceptors>
+ 
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+    	<property name="defaultLocale" value="en"/>
+	</bean>
+ 
+ 
   <!-- Add JPA support -->
   <context:load-time-weaver/>
   <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -38,11 +54,31 @@
   <!-- Use @Transaction annotations for managing transactions -->
   <tx:annotation-driven transaction-manager="myTxManager" />
 
-  <!-- View resolver -->
- <bean class=
-     "org.springframework.web.servlet.view.InternalResourceViewResolver">
-   <property name="prefix" value="/WEB-INF/"/>
- </bean>
+  <!-- View resolver --> 
+   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	    <property name="ignoreAcceptHeader" value="true" />
+	    <!--<property name="favorPathExtension" value="false" />-->
+	    <property name="mediaTypes">
+	        <map>
+	        	<entry key="xml" value="application/xml"/>
+	            <entry key="json" value="application/json" />
+	        </map>
+	    </property>
+	    <property name="viewResolvers">
+	        <list>
+	            <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	            	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+	                <property name="prefix" value="/WEB-INF/" />
+	                <property name="suffix" value=".jsp" />
+	            </bean>
+	        </list>
+	    </property>
+	    <property name="defaultViews">
+	        <list>
+	            <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+	        </list>
+	    </property>
+	</bean>
  
   <!-- Use @Controller annotations for MVC controller definitions -->
   <mvc:annotation-driven />

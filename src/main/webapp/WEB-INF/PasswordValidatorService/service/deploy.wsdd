@@ -11,10 +11,9 @@
       <parameter name="wsdlPortType" value="PasswordValidator"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="validate" qname="operNS:validate" returnQName="retNS:validateReturn" returnType="rtns:boolean" soapAction="">
-        <parameter xmlns:pns="http://service" xmlns:tns="http://service" qname="pns:password" type="tns:Password"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pas" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="validate"/>
 
-      <typeMapping xmlns:ns="http://service" qname="ns:Password" type="java:service.Password" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

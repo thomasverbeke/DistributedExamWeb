@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+
+
 @Entity
 @Table(name = "Role", catalog = "a12_DA3", schema = "db_accessadmin")
 @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r")

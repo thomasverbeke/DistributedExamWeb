@@ -14,7 +14,7 @@
 
   <servlet-mapping>
     <servlet-name>spring</servlet-name>
-    <url-pattern>*.html</url-pattern>
+    <url-pattern>*.htm</url-pattern>
   </servlet-mapping>
     <servlet-mapping>  
     <servlet-name>spring</servlet-name>  
@@ -29,10 +29,12 @@
     <servlet-name>BasicServlet</servlet-name>
     <servlet-class>service.BasicServlet</servlet-class>
  </servlet>
+
  <servlet-mapping>
     <servlet-name>BasicServlet</servlet-name>
     <url-pattern>/basic</url-pattern>
 </servlet-mapping>
+ 
   	
     <session-config>
     <session-timeout>
@@ -42,4 +44,15 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
+   <jsp-config>
+    <taglib>
+      <taglib-uri>/spring</taglib-uri>
+      <taglib-location>/WEB-INF/tld/spring-form.tld</taglib-location>
+    </taglib>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <trim-directive-whitespaces>true</trim-directive-whitespaces>
+     </jsp-property-group>
+  </jsp-config>
 </web-app>

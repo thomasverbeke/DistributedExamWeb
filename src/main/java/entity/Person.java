@@ -37,7 +37,7 @@ public class Person implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
 	private String name;
-	private int age;
+	private Integer age;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	//@JoinColumn(name="fk_role", referencedColumnName = "id")
@@ -75,7 +75,7 @@ public class Person implements Serializable {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 

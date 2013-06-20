@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+header, footer, section, aside, nav, article { display: block; }
+
+lu,li{display:inline}
+a{display:block}
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+
+
+header#page_header {
+ width: 100%;
+ margin: 0px;
+ padding: 0px;
+}
+
+header#page_header nav
+{
+  	background-color:#2C5463;
+  	height:30px;
+  	margin: 0px;
+}
+
+header#page_header nav ul {
+	font-family: Arial, Verdana;
+  	font-size: 15px;
+ 	list-style: none;
+ 	margin: 0;
+ 	padding: 0;
+}
+
+#page_header nav ul li {
+ 	display:inline;
+ 	margin: 0px;
+ 	padding: 1px;
+ 	float:left;
+}
+
+nav ul li a {
+	display: block;
+  	text-decoration: none;
+  	padding: 7px 15px 3px 15px;
+  	white-space: nowrap;
+  	background: #2C5463;
+  	color: #ffffff; 
+  	margin-left: 1px;
+  	text-align:center;
+ 	float:left;
+}
+
+nav ul li a:hover {
+  background: #617F8A;
+}
+
+#page_header nav ul li#languageSelection
+{
+	float:right;
+}
+
+header#page_header nav ul li aside ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+#page_header nav ul li aside
+{
+	float:right;
+}
+
+#page_header nav ul li aside ul li {
+ 	display: inline;
+ 	margin: 0;
+ 	padding: 1px;
+}
+
+#page_header nav ul li aside ul li:before {
+	content: " | ";
+	color: #ffffff; 
+	padding: 0px 0px 30px 0px;
+	font-size: 20px;
+	white-space: nowrap;
+}
+
+#page_header nav ul li aside ul li:last-child:before {
+	content: none;
+}
+
+#page_header nav ul li aside ul li a
+{
+	/* display: inline; */
+	display:block;
+	width: 1em;
+	padding: 7px 5px 0px 5px;
+	margin-left:0px;
+}
+
+
+#single_table
+{
+	width:95%;
+	background-color:#f8f8ff;
+	border: 0px;
+	border-spacing:0;
+  	border-collapse:collapse;
+}
+
+#single_table td
+{
+	text-align: right;
+}
+
+#per20
+{
+	width: 20%
+}
+
+#per60
+{
+	width: 60%
+}
+
+input
+{
+	text-align:center;
+}
+
+input#percentage
+{
+	text-align:left;
+}
+
+li.home_link a
+{
+	font-weight:bold;
+}
+
+
+body {
+	background-color: #eee;
+	font: helvetica;
+	margin: 0px;
+}
+
+#container {
+	width: 500px;
+	background-color: #fff;
+	margin: 30px auto;
+	padding: 30px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+}
+
+.green {
+	font-weight: bold;
+	color: green;
+}
+
+.message {
+	margin-bottom: 10px;
+}
+
+label {
+	width: 70px;
+	display: inline-block;
+}
+
+.hide {
+	display: none;
+}
+
+.error {
+	color: red;
+	font-size: 0.8em;
+}

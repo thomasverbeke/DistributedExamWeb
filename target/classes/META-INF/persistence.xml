@@ -3,8 +3,11 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
  
-  <persistence-unit name="thomas" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="thomas" transaction-type="JTA">
    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+   
+     <jta-data-source>groeptDataSource</jta-data-source>
+     
     <class>entity.Person</class>
     <class>entity.Role</class>
     <class>entity.Data</class>
@@ -12,9 +15,11 @@
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
       <property name="javax.persistence.jdbc.url"
-        value="jdbc:sqlserver://studev.groept.be\groept;databaseName=a12_DA3" />
+        value="jdbc:sqlserver://studev.groept.be/groept" />
+      <property name="databaseName" value="a12_DA3"/>
       <property name="javax.persistence.jdbc.user" value="a12_DA3" />
       <property name="javax.persistence.jdbc.password" value="a12_DA3" />
     </properties>
   </persistence-unit>
+  
 </persistence>
